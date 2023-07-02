@@ -4,26 +4,11 @@
 
 I'm a passionate software developer with a focus on web development and data science. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.
 
-## Skills
-
-- Languages: Python, JavaScript, SQL
-- Frameworks: Flask, React
-- Databases: MySQL
-- Tools: Git, VS Code
-
 ## Contact Me
 
 You can reach out to me through the following channels:
 - Email: devadula.nandan@gmail.com
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/nandan-devadula/)
-
-## License
-
-All of my repositories are available under the [MIT License](LICENSE). Feel free to use and modify the code as per the license terms.
-
-## Feedback
-
-If you have any feedback or suggestions regarding my projects or GitHub homepage, please don't hesitate to reach out. Your input is greatly appreciated!
 
 <div align="left">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=devadula-nandan.devadula-nandan&right_color=steelblue&left_text=PROFILE VIEWS"  />
