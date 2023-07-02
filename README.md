@@ -1,14 +1,14 @@
-# Welcome to My GitHub Homepage!
+<h2 align="left">About Me</h2>
 
-## About Me
+###
 
-I'm a passionate software developer with a focus on web development and data science. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.
+<h6 align="left">Hi, I am Nandan Devadula<br>I'm a passionate software developer. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.</h6>
 
-## Contact Me
+###
 
-You can reach out to me through the following channels:
-- Email: devadula.nandan@gmail.com
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/nandan-devadula/)
+<h2 align="left">Stats</h2>
+
+###
 
 <div align="left">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=devadula-nandan.devadula-nandan&right_color=steelblue&left_text=PROFILE VIEWS"  />
@@ -20,6 +20,10 @@ You can reach out to me through the following channels:
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=12&theme=dark&hide_border=false&order=2" height="180" alt="languages graph"  />
   <img src="https://streak-stats.demolab.com?user=devadula-nandan&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="180" alt="streak graph"  />
 </div>
+
+###
+
+<h2 align="left">My skills</h2>
 
 ###
 
@@ -50,6 +54,10 @@ You can reach out to me through the following channels:
   <img width="16" />
   <img src="https://skillicons.dev/icons?i=postman" height="44" alt="postman logo"  />
 </div>
+
+###
+
+<h2 align="left">Social</h2>
 
 ###
 
