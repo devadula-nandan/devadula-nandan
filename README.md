@@ -10,7 +10,7 @@
 
 ###
 
-![](https://komarev.com/ghpvc/?username=your-github-username&style=for-the-badge&color=dc143c)
+![](https://komarev.com/ghpvc/?username=devadula-nandan&style=for-the-badge&color=dc143c)
 
 ###
 
