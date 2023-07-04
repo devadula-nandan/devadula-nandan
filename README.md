@@ -1,32 +1,51 @@
-<h2 align="left">About Me</h2>
+<br clear="both">
+
+<h2 align="center">About Me</h2>
 
 ###
 
-<h5 align="left">Hi, I am Nandan Devadula<br>I'm a passionate software developer. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.</h5>
+<br clear="both">
+
+<h4 align="center">Hi, I am Nandan Devadula<br>I'm a passionate software developer. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.</h4>
 
 ###
 
-<h2 align="left">Stats</h2>
+<br clear="both">
+
+<h2 align="center">Stats</h2>
 
 ###
 
-![](https://komarev.com/ghpvc/?username=devadula-nandan&style=for-the-badge&color=dc143c)
-
-###
-
-<div align="left">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&locale=en&hide_title=false&layout=compact&langs_count=12&theme=github_dark&hide_border=false&order=2" alt="languages graph"  />
-  <img src="https://streak-stats.demolab.com?user=devadula-nandan&locale=en&mode=daily&theme=github_dark&hide_border=false&border_radius=5&order=3" alt="streak graph"  />
-
+<br clear="both">
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=devadula-nandan&style=for-the-badge&color=dc143c"  />
 </div>
 
 ###
 
-<h2 align="left">My skills</h2>
+<br clear="both">
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=devadula-nandan&locale=en&mode=daily&theme=github_dark&hide_border=false&border_radius=5&order=3" height="180" alt="streak graph"  />
+</div>
 
 ###
 
-<div align="left">
+<br clear="both">
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=false&order=2" height="150" alt="languages graph"  />
+</div>
+
+###
+
+<h2 align="center">My skills</h2>
+
+###
+
+<br clear="both">
+
+<div align="center">
   <img src="https://skillicons.dev/icons?i=html" height="40" alt="html5 logo"  />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=css" height="40" alt="css3 logo"  />
@@ -56,11 +75,15 @@
 
 ###
 
-<h2 align="left">Social</h2>
+<br clear="both">
+
+<h2 align="center">Social</h2>
 
 ###
 
-<div align="left">
+<br clear="both">
+
+<div align="center">
   <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
   <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/discord/default.svg" width="52" height="40" alt="discord logo"  />
 </div>
