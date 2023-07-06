@@ -6,7 +6,7 @@
 
 <br clear="both">
 
-<h4 align="center">Hi, Ii am Nandan Devadula<br>I'm a passionate software developer. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.</h4>
+<h4 align="center">Hi, I am Nandan Devadula<br>I'm a passionate software developer. I enjoy working with Python, JavaScript, and SQL. I'm constantly learning and exploring new technologies to expand my skillset.</h4>
 
 ###
 
