@@ -3,6 +3,8 @@
 <h1 align="left">Hi 👋, I'm Nandan Devadula</h1>
 <h3 align="left">A Passionate Frontend Developer</h3>
 
+<img src="https://komarev.com/ghpvc/?username=devadula-nandan&label=Profile+Views&color=orange&style=for-the-badge" alt="devadula-nandan" />
+
 ---
 
 **About Me**
@@ -51,10 +53,6 @@ Currently, I'm working with **Carbon for IBM Products**, where I contribute **mo
 ---
 
 **GitHub Stats**
-
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=devadula-nandan&label=Profile+Views&color=orange&style=for-the-badge" alt="devadula-nandan" />
-</p>
 
 <p align="left">
   <a href="https://github.com/ryo-ma/github-profile-trophy">
