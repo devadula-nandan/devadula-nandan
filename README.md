@@ -63,11 +63,11 @@ Currently, I'm working with **Carbon for IBM Products**, where I contribute **mo
 <a href="https://github.com/devadula-nandan/github-readme-stats">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&show_icons=true&layout=compact&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&show_icons=true&layout=compact&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true&include_all_commits=true"
       media="(prefers-color-scheme: dark)"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&show_icons=true&layout=compact&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&show_icons=true&layout=compact&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true&include_all_commits=true"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img width="370" src="https://github-readme-stats.vercel.app/api/top-langs?username=devadula-nandan&show_icons=true" />
@@ -77,11 +77,11 @@ Currently, I'm working with **Carbon for IBM Products**, where I contribute **mo
 <a href="https://github.com/devadula-nandan/github-readme-stats">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=devadula-nandan&show_icons=true&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true"
+      srcset="https://github-readme-stats.vercel.app/api?username=devadula-nandan&show_icons=true&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true&include_all_commits=true"
       media="(prefers-color-scheme: dark)"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=devadula-nandan&show_icons=true&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true"
+      srcset="https://github-readme-stats.vercel.app/api?username=devadula-nandan&show_icons=true&theme=monokai&bg_color=00000000&hide_title=true&hide_border=true&include_all_commits=true"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img src="https://github-readme-stats.vercel.app/api?username=devadula-nandan&show_icons=true" />
