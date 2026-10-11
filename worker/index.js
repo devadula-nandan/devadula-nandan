@@ -1,4 +1,43 @@
-const { setCorsHeaders } = require('../lib/cors.js');
+// Cloudflare Worker behind the portfolio's About chat widget.
+//   GET  /api/health → { ok }     cheap config check, never calls Gemini
+//   POST /api/chat   → { reply }  Gemini proxy; keeps GOOGLE_API_KEY off the static site
+
+const STATIC_ALLOWED_ORIGINS = new Set([
+  'https://nandan-dev.com',
+  'https://www.nandan-dev.com',
+  'https://devadula-nandan.github.io',
+]);
+
+// Matches http://<private-LAN-ip>:<port> so the widget also works when
+// testing from a phone on the same Wi-Fi as the dev machine — the LAN IP
+// changes across networks/DHCP leases, so a fixed allow-list entry won't do.
+const LOCAL_NETWORK_ORIGIN = /^http:\/\/(192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}):\d+$/;
+
+function isAllowedOrigin(origin) {
+  return STATIC_ALLOWED_ORIGINS.has(origin) ||
+         LOCAL_NETWORK_ORIGIN.test(origin) ||
+         /^http:\/\/localhost(:\d+)?$/.test(origin);
+}
+
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  const headers = {
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+  if (isAllowedOrigin(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return headers;
+}
+
+function json(data, status, headers) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { ...headers, 'Content-Type': 'application/json' },
+  });
+}
 
 // Available models ordered from highest to lowest quality
 const MODELS_HIERARCHY = [
@@ -81,23 +120,12 @@ function buildContents(body) {
   return contents;
 }
 
-module.exports = async function handler(req, res) {
-  setCorsHeaders(req, res);
+async function handleChat(request, env, cors) {
+  const body = await request.json().catch(() => ({}));
 
-  if (req.method === 'OPTIONS') {
-    res.status(204).end();
-    return;
-  }
-
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
-  }
-
-  const contents = buildContents(req.body);
+  const contents = buildContents(body);
   if (!contents.length) {
-    res.status(400).json({ error: 'Empty message' });
-    return;
+    return json({ error: 'Empty message' }, 400, cors);
   }
 
   let reply = null;
@@ -105,11 +133,11 @@ module.exports = async function handler(req, res) {
   let lastError = null;
   const rateLimitedModels = [];
 
-  const fallbackChain = getFallbackChain(req.body?.preferredModel);
+  const fallbackChain = getFallbackChain(body?.preferredModel);
 
   for (const model of fallbackChain) {
     try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GOOGLE_API_KEY}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.GOOGLE_API_KEY}`;
       console.log(`Attempting chat generation with model: ${model}`);
       const geminiRes = await fetch(url, {
         method: 'POST',
@@ -120,14 +148,6 @@ module.exports = async function handler(req, res) {
           generationConfig: { maxOutputTokens: 400, temperature: 0.75, topP: 0.9 },
         }),
       });
-
-      if (geminiRes.status === 429 || geminiRes.status === 403) {
-        const errorBody = await geminiRes.text();
-        console.warn(`Model ${model} rate-limited or quota exceeded (status ${geminiRes.status}): ${errorBody}. Trying next fallback...`);
-        lastError = { status: geminiRes.status, body: errorBody };
-        rateLimitedModels.push(model);
-        continue;
-      }
 
       if (!geminiRes.ok) {
         const errorBody = await geminiRes.text();
@@ -157,12 +177,35 @@ module.exports = async function handler(req, res) {
 
   if (!reply) {
     console.error('All models in the fallback chain failed.');
-    res.status(lastError?.status || 502).json({
+    return json({
       error: 'All Gemini models exhausted',
       details: lastError?.body || 'Unknown error'
-    });
-    return;
+    }, lastError?.status >= 400 ? lastError.status : 502, cors);
   }
 
-  res.status(200).json({ reply, modelUsed, rateLimitedModels });
+  return json({ reply, modelUsed, rateLimitedModels }, 200, cors);
+}
+
+export default {
+  async fetch(request, env) {
+    const { pathname } = new URL(request.url);
+    const cors = corsHeaders(request);
+
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: cors });
+    }
+
+    if (pathname === '/api/health' && request.method === 'GET') {
+      return json({ ok: Boolean(env.GOOGLE_API_KEY) }, 200, cors);
+    }
+
+    if (pathname === '/api/chat') {
+      if (request.method !== 'POST') {
+        return json({ error: 'Method not allowed' }, 405, cors);
+      }
+      return handleChat(request, env, cors);
+    }
+
+    return json({ error: 'Not found' }, 404, cors);
+  },
 };

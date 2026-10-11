@@ -1,0 +1,26 @@
+name: Deploy chat API
+
+# The site itself is published by GitHub Pages straight from main.
+# This only redeploys the Cloudflare Worker when its code changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - worker/**
+      - .github/workflows/deploy-api.yml
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          secrets: |
+            GOOGLE_API_KEY
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}

@@ -1825,6 +1825,8 @@
       }
 
       /* ---------- chat assistant (POST /api/chat) ---------- */
+      /* the Gemini proxy lives in a Cloudflare Worker (see worker/) — this site itself is static */
+      const API_BASE = "https://portfolio-chat.devadula-nandan.workers.dev";
       const chatLog = document.getElementById("chat-log");
       const chatInput = document.getElementById("chat-input");
 
@@ -1838,7 +1840,7 @@
       async function runHealthCheck() {
         setStatus("connecting…", false);
         try {
-          const { ok } = await (await fetch("/api/health")).json();
+          const { ok } = await (await fetch(API_BASE + "/api/health")).json();
           setStatus(ok ? "online" : "fallback", ok);
         } catch {
           setStatus("fallback", false);
@@ -2045,7 +2047,7 @@ Facts about you:
       /* cloud path — POST to the serverless Gemini endpoint */
       async function respondCloud(pending) {
         try {
-          const res = await fetch("/api/chat", {
+          const res = await fetch(API_BASE + "/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
