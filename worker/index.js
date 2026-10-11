@@ -5,7 +5,6 @@
 const STATIC_ALLOWED_ORIGINS = new Set([
   'https://nandan-dev.com',
   'https://www.nandan-dev.com',
-  'https://devadula-nandan.github.io',
 ]);
 
 // Matches http://<private-LAN-ip>:<port> so the widget also works when
