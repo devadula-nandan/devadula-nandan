@@ -1,0 +1,2343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nandan Devadula — Frontend Developer</title>
+
+    <meta
+      name="description"
+      content="Personal portfolio of Nandan Devadula — Frontend Developer at IBM specializing in the Carbon Design System, Web Components, TypeScript, and accessible enterprise UI."
+    />
+    <meta name="author" content="Nandan Devadula" />
+    <meta
+      name="theme-color"
+      content="#f4f4f4"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#161616"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="canonical" href="https://nandan-dev.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nandan Devadula — Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Frontend Developer at IBM specializing in the Carbon Design System, Web Components, TypeScript, and accessible enterprise UI."
+    />
+    <meta property="og:url" content="https://nandan-dev.com/" />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/u/47176249?s=400"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- apply saved theme before first paint -->
+    <script>
+      {
+        const t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark")
+          document.documentElement.dataset.theme = t;
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%2210%22 y=%2210%22 width=%2280%22 height=%2280%22 fill=%22none%22 stroke=%22%230f62fe%22 stroke-width=%228%22/><text x=%2250%22 y=%2268%22 font-family=%22monospace%22 font-size=%2248%22 font-weight=%22bold%22 fill=%22%230f62fe%22 text-anchor=%22middle%22>N</text></svg>"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nandan Devadula",
+        "url": "https://nandan-dev.com/",
+        "image": "https://avatars.githubusercontent.com/u/47176249?s=400",
+        "jobTitle": "Frontend Developer",
+        "worksFor": { "@type": "Organization", "name": "IBM" },
+        "sameAs": [
+          "https://github.com/devadula-nandan",
+          "https://www.linkedin.com/in/nandan-devadula"
+        ]
+      }
+    </script>
+
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          translate: none !important;
+        }
+      </style></noscript
+    >
+    <style>
+      /* ---------- tokens (light / dark via color-scheme) ---------- */
+      :root {
+        color-scheme: light dark;
+        --paper: light-dark(#f4f4f4, #161616); /* carbon gray-10 / gray-100 */
+        --surface: light-dark(#ffffff, #1f1f1f);
+        --ink: light-dark(#161616, #f4f4f4);
+        --ink-2: light-dark(#525252, #a8a8a8); /* gray-70 / gray-50 */
+        --border: light-dark(#e0e0e0, #393939); /* gray-20 / gray-80 */
+        --chip: light-dark(#e8e8e8, #2e2e2e);
+        --blue: light-dark(#0f62fe, #4589ff); /* carbon blue-60 / blue-40 */
+        --link: light-dark(#0043ce, #78a9ff); /* 4.5:1 on paper */
+        --redline: light-dark(#da1e28, #fa4d56); /* spec annotations */
+        --grid: light-dark(rgba(15, 98, 254, 0.07), rgba(69, 137, 255, 0.09));
+        --glow: light-dark(rgba(15, 98, 254, 0.05), rgba(69, 137, 255, 0.07));
+        --shadow:
+          0 2px 6px light-dark(rgba(22, 22, 22, 0.07), rgba(0, 0, 0, 0.35)),
+          0 14px 28px -10px
+            light-dark(rgba(22, 22, 22, 0.14), rgba(0, 0, 0, 0.5));
+      }
+      /* explicit choice overrides system; no attribute = auto */
+      :root[data-theme="light"] {
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+      a:hover {
+        color: var(--blue);
+      }
+      :focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", monospace;
+      }
+
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ---------- header ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: color-mix(in srgb, var(--paper) 88%, transparent);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        transition: box-shadow 0.25s ease;
+      }
+      header.scrolled {
+        box-shadow: var(--shadow);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 24px;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .brand {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .brand span {
+        color: var(--blue);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      nav ul {
+        display: flex;
+        gap: 22px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      nav a {
+        font-size: 0.85rem;
+        color: var(--ink-2);
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: var(--ink);
+      }
+      .theme-btn {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--ink-2);
+        padding: 4px 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 74px;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .theme-btn svg,
+      .chat-btn svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+        display: block;
+      }
+      .theme-btn:hover {
+        border-color: var(--blue);
+        color: var(--ink);
+      }
+
+      /* ---------- section scaffolding ---------- */
+      section {
+        padding: 96px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        color: var(--blue);
+        margin-bottom: 28px;
+      }
+      .eyebrow::before {
+        content: "// ";
+        color: var(--ink-2);
+      }
+      h2 {
+        font-family: "IBM Plex Serif", serif;
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 32px;
+        max-width: 26ch;
+      }
+
+      /* ---------- hero (the spec sheet) ---------- */
+      .hero {
+        position: relative;
+        padding: 110px 0 100px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 32px 32px;
+        -webkit-mask-image: radial-gradient(
+          130% 110% at 28% 22%,
+          #000 35%,
+          transparent 88%
+        );
+        mask-image: radial-gradient(
+          130% 110% at 28% 22%,
+          #000 35%,
+          transparent 88%
+        );
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          640px 420px at 26% 38%,
+          var(--glow),
+          transparent 70%
+        );
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .spec-name {
+        position: relative;
+        display: inline-block;
+        margin-top: 34px;
+      }
+      h1 {
+        font-family: "IBM Plex Serif", serif;
+        font-weight: 600;
+        font-size: clamp(2.8rem, 8vw, 5.2rem);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+      }
+
+      /* redline annotations */
+      .redline,
+      .gapline {
+        color: var(--redline);
+        pointer-events: none;
+      }
+      .redline {
+        position: absolute;
+        top: -22px;
+        left: 2px;
+        right: 2px;
+        border-top: 1px solid currentColor;
+      }
+      .redline::before,
+      .redline::after {
+        content: "";
+        position: absolute;
+        top: -4px;
+        width: 1px;
+        height: 9px;
+        background: currentColor;
+      }
+      .redline::before {
+        left: 0;
+      }
+      .redline::after {
+        right: 0;
+      }
+      .redline b,
+      .gapline b {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--paper);
+        padding: 0 10px;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 400;
+        font-size: 0.68rem;
+        white-space: nowrap;
+      }
+      .gapline {
+        position: relative;
+        width: 1px;
+        height: 40px;
+        margin-left: 6px;
+        background: currentColor;
+      }
+      .gapline::before,
+      .gapline::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        width: 9px;
+        height: 1px;
+        background: currentColor;
+      }
+      .gapline::before {
+        top: 0;
+      }
+      .gapline::after {
+        bottom: 0;
+      }
+      .gapline b {
+        top: 50%;
+        left: 14px;
+        transform: translateY(-50%);
+      }
+
+      .lede {
+        max-width: 54ch;
+        font-size: 1.15rem;
+        color: var(--ink-2);
+      }
+      .lede strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .hero-links {
+        display: flex;
+        gap: 24px;
+        margin-top: 36px;
+        flex-wrap: wrap;
+      }
+      .hero-links a {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .hero-links a:hover {
+        border-color: var(--blue);
+      }
+      .hero-links a svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
+      /* portrait, framed like a spec asset */
+      .spec-asset {
+        width: 250px;
+        max-width: 100%;
+      }
+      .spec-asset .frame {
+        position: relative;
+      }
+      .spec-asset img {
+        display: block;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(
+          0px 0px 8px
+            light-dark(rgba(15, 99, 254, 0.171), rgba(69, 137, 255, 0.26))
+        );
+      }
+      .spec-asset .frame::before,
+      .spec-asset .frame::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border: 0 solid var(--redline);
+      }
+      .spec-asset .frame::before {
+        top: -7px;
+        left: -7px;
+        border-top-width: 1px;
+        border-left-width: 1px;
+      }
+      .spec-asset .frame::after {
+        bottom: -7px;
+        right: -7px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+      }
+      .spec-asset figcaption {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--ink-2);
+        margin-top: 12px;
+      }
+
+      /* hero load-in */
+      @media (prefers-reduced-motion: no-preference) {
+        .hero .eyebrow,
+        .spec-name h1,
+        .hero .lede,
+        .hero-links,
+        .hero .spec-asset {
+          opacity: 0;
+          translate: 0 14px;
+          animation: rise 0.7s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+        }
+        .spec-name h1 {
+          animation-delay: 0.08s;
+        }
+        .hero .lede {
+          animation-delay: 0.16s;
+        }
+        .hero-links {
+          animation-delay: 0.24s;
+        }
+        .hero .spec-asset {
+          animation-delay: 0.2s;
+        }
+        .redline,
+        .gapline {
+          opacity: 0;
+          animation: appear 0.5s ease 0.8s forwards;
+        }
+        @keyframes rise {
+          to {
+            opacity: 1;
+            translate: 0 0;
+          }
+        }
+        @keyframes appear {
+          to {
+            opacity: 1;
+          }
+        }
+
+        .reveal {
+          opacity: 0;
+          translate: 0 18px;
+          transition:
+            opacity 0.6s ease,
+            translate 0.6s ease;
+        }
+        .reveal.in {
+          opacity: 1;
+          translate: none; /* not "0 0" — a non-none translate would trap position:fixed children (maximized chat) */
+        }
+      }
+
+      /* ---------- about ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 56px;
+        align-items: end;
+      }
+      .about-grid p {
+        color: var(--ink-2);
+        max-width: 60ch;
+      }
+      .about-grid p + p {
+        margin-top: 16px;
+      }
+      .about-grid p strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .props {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.82rem;
+      }
+      .props div {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .props dt {
+        color: var(--ink-2);
+        font-weight: 400;
+      }
+      .props dd {
+        text-align: right;
+      }
+
+      /* ---------- experience ---------- */
+      .job {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        padding: 36px 0;
+      }
+      .job + .job {
+        border-top: 1px solid var(--border);
+      }
+      .job time {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.8rem;
+        color: var(--ink-2);
+        padding-top: 4px;
+      }
+      .job time::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border: 1px solid var(--blue);
+        margin-right: 12px;
+        vertical-align: 1px;
+      }
+      .job:first-of-type time::before {
+        background: var(--blue);
+      }
+      .job h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+      .job .place {
+        color: var(--blue);
+        font-weight: 500;
+      }
+      .job .meta {
+        font-size: 0.85rem;
+        color: var(--ink-2);
+        margin: 2px 0 14px;
+      }
+      .job ul {
+        list-style: none;
+        color: var(--ink-2);
+      }
+      .job li {
+        padding-left: 18px;
+        position: relative;
+        margin-bottom: 8px;
+      }
+      .job li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--blue);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .tag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        background: var(--chip);
+        color: var(--ink-2);
+        padding: 3px 10px;
+        border-radius: 999px;
+      }
+
+      .edu {
+        margin-top: 48px;
+        padding-top: 28px;
+        border-top: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        font-size: 0.9rem;
+        color: var(--ink-2);
+      }
+      .edu .mono {
+        font-size: 0.8rem;
+        padding-top: 2px;
+      }
+      .edu p + p {
+        margin-top: 8px;
+      }
+      .edu strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      /* ---------- projects ---------- */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: border-color 0.2s ease;
+      }
+      .card:hover {
+        border-color: var(--blue);
+      }
+      .card h3 {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .card h3 a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .card h3 a::after {
+        content: " ↗";
+        color: var(--blue);
+        font-size: 0.85em;
+      }
+      .card p {
+        font-size: 0.9rem;
+        color: var(--ink-2);
+        flex: 1;
+      }
+      .card .topics {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--ink-2);
+      }
+      .card .topics span::before {
+        content: "#";
+        color: var(--blue);
+      }
+      .card .topics span {
+        margin-right: 10px;
+      }
+      .more-repos {
+        margin-top: 28px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
+      }
+
+      /* ---------- github stats ---------- */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+      .stats dt {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--ink-2);
+        margin-bottom: 6px;
+      }
+      .stats dd {
+        font-family: "IBM Plex Serif", serif;
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+      .langbar {
+        display: flex;
+        height: 10px;
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 14px;
+      }
+      .lang-legend {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--ink-2);
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .lang-legend i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        margin-right: 6px;
+      }
+      .heatmap-block {
+        margin-top: 48px;
+      }
+      .hm-title {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--ink-2);
+        margin-bottom: 16px;
+        letter-spacing: 0.04em;
+      }
+      .hm-title::before {
+        content: "· ";
+        color: var(--blue);
+      }
+      .heatmap {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(7, 10px);
+        grid-auto-columns: 10px;
+        gap: 3px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+      }
+      .heatmap i {
+        border-radius: 2px;
+        background: var(--chip);
+      }
+      .heatmap .lv1 {
+        background: light-dark(#d0e2ff, #002d9c);
+      }
+      .heatmap .lv2 {
+        background: light-dark(#a6c8ff, #0043ce);
+      }
+      .heatmap .lv3 {
+        background: light-dark(#4589ff, #0f62fe);
+      }
+      .heatmap .lv4 {
+        background: light-dark(#0f62fe, #78a9ff);
+      }
+      .hm-caption {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--ink-2);
+        margin-top: 10px;
+      }
+
+      /* ---------- skills ---------- */
+      .skill-groups {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px 32px;
+      }
+      .skill-groups h3 {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--ink-2);
+        margin-bottom: 16px;
+        letter-spacing: 0.04em;
+      }
+      .skill-groups h3::before {
+        content: "· ";
+        color: var(--blue);
+      }
+      .skill-groups .tags {
+        margin-top: 0;
+      }
+      .skill-groups .tag {
+        font-size: 0.78rem;
+        padding: 5px 12px;
+        color: var(--ink);
+      }
+
+      /* ---------- contact + assistant ---------- */
+      .contact h2 {
+        max-width: 20ch;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .contact .big-mail {
+        display: inline-block;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: clamp(1.05rem, 3vw, 1.35rem);
+        margin: 8px 0 28px;
+      }
+      .contact-meta {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
+        color: var(--ink-2);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .contact-meta a,
+      .contact-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .contact-meta svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+        flex-shrink: 0;
+        color: var(--ink-2);
+      }
+
+      .chat {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        height: 380px;
+      }
+      .chat-top {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--ink-2);
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .chat-top .tilde {
+        color: var(--blue);
+      }
+      .chat-title {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .chat-status {
+        white-space: nowrap;
+      }
+      .chat-status.on {
+        color: light-dark(#198038, #42be65);
+      } /* carbon green-60 / green-40 */
+      .chat-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink-2);
+        font-size: 0.95rem;
+        line-height: 1;
+        padding: 2px;
+      }
+      .chat-btn:hover {
+        color: var(--blue);
+      }
+      .chat-mode {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--ink-2);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        padding: 2px 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .chat-mode:hover {
+        border-color: var(--blue);
+        color: var(--ink);
+      }
+      .chat-mode svg {
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+      }
+      .chat-model-select {
+        display: inline-flex;
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--ink-2);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        padding: 2px 24px 2px 8px;
+        cursor: pointer;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path fill='%238d8d8d' d='M2,3 L5,6 L8,3 Z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+      }
+      .chat-model-select:hover {
+        border-color: var(--blue);
+        color: var(--ink);
+      }
+      .chat-model-select:focus-visible {
+        border-color: var(--blue);
+      }
+
+      /* typing caret */
+      .msg.bot.typing::after {
+        content: "▍";
+        color: var(--blue);
+        animation: blink 1s steps(2) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* maximized chat — inline top/left/width/height set by JS, transitioned from its on-page rect */
+      .chat.max {
+        border-radius: 0;
+        border: none;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .chat.max {
+          transition:
+            top 0.4s cubic-bezier(0.2, 0, 0.2, 1),
+            left 0.4s cubic-bezier(0.2, 0, 0.2, 1),
+            width 0.4s cubic-bezier(0.2, 0, 0.2, 1),
+            height 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+      }
+      .chat-log {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        font-size: 0.9rem;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+      }
+      .msg {
+        max-width: 90%;
+      }
+      .msg.you {
+        align-self: flex-end;
+        background: var(--chip);
+        padding: 8px 12px;
+        border-radius: 4px 4px 0 4px;
+      }
+      .msg.bot {
+        color: var(--ink-2);
+      }
+      .msg.bot::before {
+        content: "nandan.assistant ▸";
+        display: block;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--blue);
+        margin-bottom: 3px;
+      }
+      .msg.system {
+        align-self: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--ink-2);
+        opacity: 0.85;
+        text-align: center;
+        background: none;
+        border: 1px dashed var(--border);
+        padding: 4px 10px;
+        border-radius: 4px;
+        max-width: 90%;
+        margin: 4px 0;
+      }
+      .msg.system::before {
+        content: none !important;
+      }
+      .chat-form {
+        display: flex;
+        border-top: 1px solid var(--border);
+      }
+      .chat-form input {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 16px;
+        background: none;
+        border: none;
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.9rem;
+      }
+      .chat-form input::placeholder {
+        color: var(--ink-2);
+        opacity: 0.55;
+      }
+      .chat-form button {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.8rem;
+        background: none;
+        border: none;
+        border-left: 1px solid var(--border);
+        color: var(--blue);
+        padding: 0 20px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .chat-form button svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+      }
+      .chat-form button:hover {
+        background: var(--chip);
+      }
+
+      footer {
+        padding: 28px 0 40px;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--ink-2);
+      }
+      footer a {
+        color: var(--ink-2);
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 760px) {
+        section {
+          padding: 72px 0;
+        }
+        .hero {
+          padding: 72px 0 64px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero .spec-asset {
+          width: 200px;
+        }
+        .about-grid,
+        .job,
+        .edu,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-grid {
+          gap: 36px;
+        }
+        .job time {
+          padding-top: 0;
+        }
+        .redline b {
+          font-size: 0.6rem;
+        }
+        .rl-x {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <a class="brand" href="#top"><span>~/</span>nandan</a>
+        <div class="nav-right">
+          <nav aria-label="Primary">
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <button
+            class="theme-btn"
+            id="theme-btn"
+            type="button"
+            aria-label="Theme: auto"
+          >
+            auto
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ================= hero ================= -->
+      <section class="hero" aria-label="Introduction">
+        <div class="wrap">
+          <p class="eyebrow">user.hero — frontend engineer, Kochi IN</p>
+
+          <div class="hero-grid">
+            <div>
+              <div class="spec-name">
+                <span class="redline" aria-hidden="true"
+                  ><b
+                    >display-01<span class="rl-x">
+                      · IBM Plex Serif 600</span
+                    ></b
+                  ></span
+                >
+                <h1>Nandan<br />Devadula</h1>
+              </div>
+
+              <div class="gapline" aria-hidden="true">
+                <b>$spacing-08 · 40px</b>
+              </div>
+
+              <p class="lede">
+                I build with <strong>Carbon Design System</strong> at IBM —
+                accessible, enterprise-grade web components shipped to hundreds
+                of products. Pixel-perfect, WCAG-compliant, and inclusive by
+                design.
+              </p>
+
+              <div class="hero-links">
+                <a
+                  data-icon="github"
+                  href="https://github.com/devadula-nandan"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>github</span></a
+                >
+                <a
+                  data-icon="linkedin"
+                  href="https://www.linkedin.com/in/nandan-devadula"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>linkedin</span></a
+                >
+                <a
+                  data-icon="document"
+                  href="https://drive.google.com/file/d/1gtAMviM329eqGWURrzCcOWMZM2PIkAjC/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>résumé</span></a
+                >
+                <a data-icon="email" href="mailto:devadula.nandan@gmail.com"
+                  ><span>email</span></a
+                >
+              </div>
+            </div>
+
+            <figure class="spec-asset">
+              <div class="frame">
+                <img
+                  src="https://avatars.githubusercontent.com/u/47176249?s=400"
+                  alt="Nandan Devadula"
+                  width="400"
+                  height="400"
+                />
+              </div>
+              <figcaption>fig. 01 — avatar · 400 × 400</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= about ================= -->
+      <section id="about">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.about</p>
+          <div class="about-grid">
+            <div>
+              <h2>Design systems are promises kept at scale.</h2>
+              <p>
+                I'm a frontend developer on IBM's
+                <strong>Carbon Design System</strong> team, building components
+                for <strong>Carbon</strong>, <strong>Carbon for IBM Products</strong> and
+                <strong>Carbon for AI</strong> — work that directly shapes the
+                experience of enterprise software used around the world.
+              </p>
+              <p>
+                Before IBM, I built financial dashboards and real-time data UIs
+                at HCLTech. I care deeply about accessibility, component
+                modularity, and the kind of craft you only notice when it's
+                missing.
+              </p>
+            </div>
+            <dl class="props" aria-label="Quick facts">
+              <div>
+                <dt>experience</dt>
+                <dd>5+ years</dd>
+              </div>
+              <div>
+                <dt>current</dt>
+                <dd>IBM · Carbon</dd>
+              </div>
+              <div>
+                <dt>open_source</dt>
+                <dd>40+ repos</dd>
+              </div>
+              <div>
+                <dt>focus</dt>
+                <dd>WCAG · a11y</dd>
+              </div>
+              <div>
+                <dt>stack</dt>
+                <dd>TS · Lit · React</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= experience ================= -->
+      <section id="experience">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.experience</p>
+          <h2>Where I've worked</h2>
+
+          <article class="job">
+            <time>2023 — present</time>
+            <div>
+              <h3>Frontend Developer · <span class="place">IBM</span></h3>
+              <p class="meta">Kochi, Kerala · Hybrid</p>
+              <ul>
+                <li>
+                  Develop and maintain accessible, enterprise-grade components
+                  for Carbon for IBM Products and Carbon for AI.
+                </li>
+                <li>
+                  Prototype new UI paradigms in Carbon Labs — IBM's space for
+                  rapid frontend innovation.
+                </li>
+                <li>
+                  Drive WCAG compliance with unit, E2E, and automated
+                  accessibility testing.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Carbon Design System</span
+                ><span class="tag">Web Components</span>
+                <span class="tag">TypeScript</span><span class="tag">Lit</span>
+                <span class="tag">WCAG</span><span class="tag">Playwright</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="job">
+            <time>2022 — 2023</time>
+            <div>
+              <h3>
+                Software Engineer · <span class="place">HCL Technologies</span>
+              </h3>
+              <p class="meta">Hyderabad, Telangana · On-site</p>
+              <ul>
+                <li>
+                  Built responsive UI components for financial dashboards and
+                  reporting tools.
+                </li>
+                <li>
+                  Integrated RESTful APIs with backend teams for real-time data
+                  across applications.
+                </li>
+                <li>Diagnosed UI bugs and shipped performance enhancements.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">React</span><span class="tag">Redux</span>
+                <span class="tag">REST APIs</span><span class="tag">Jest</span
+                ><span class="tag">Cypress</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="job">
+            <time>2021 — 2022</time>
+            <div>
+              <h3>Web UI Developer · <span class="place">Ochre Media</span></h3>
+              <p class="meta">Secunderabad, Telangana · On-site</p>
+              <ul>
+                <li>
+                  Designed and developed websites, microsites, and newsletters
+                  for B2B clients.
+                </li>
+                <li>
+                  Created product pages and inquiry forms that improved
+                  engagement and conversion.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">HTML5</span><span class="tag">CSS</span>
+                <span class="tag">JavaScript</span
+                ><span class="tag">Bootstrap</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="edu">
+            <span class="mono">education</span>
+            <div>
+              <p>
+                <strong>B.E. Electronics &amp; Communication</strong> — Andhra
+                University (GVP College of Engineering), 2014–2018
+              </p>
+              <p>
+                <strong>Certificate, Software Development</strong> — Great
+                Learning, 2021
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= projects ================= -->
+      <section id="work">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.projects</p>
+          <h2>Selected open-source work</h2>
+
+          <div class="cards">
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/wc-audio-input"
+                  target="_blank"
+                  rel="noopener"
+                  >wc-audio-input</a
+                >
+              </h3>
+              <p>
+                Audio input web component with speech-to-text support. Native
+                Web Components + TypeScript.
+              </p>
+              <p class="topics">
+                <span>web-components</span><span>speech-to-text</span
+                ><span>typescript</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/wc-resizer"
+                  target="_blank"
+                  rel="noopener"
+                  >wc-resizer</a
+                >
+              </h3>
+              <p>
+                Lightweight, reusable container-resizer web component for
+                flexbox layouts.
+              </p>
+              <p class="topics">
+                <span>web-components</span><span>typescript</span
+                ><span>ui-component</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/storybook-theme-carbon"
+                  target="_blank"
+                  rel="noopener"
+                  >storybook-theme-carbon</a
+                >
+              </h3>
+              <p>
+                Storybook themes and layouts tailored to IBM's Carbon Design
+                System aesthetics.
+              </p>
+              <p class="topics">
+                <span>storybook</span><span>carbon</span><span>scss</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/TD-TABLE"
+                  target="_blank"
+                  rel="noopener"
+                  >TD-TABLE</a
+                >
+              </h3>
+              <p>
+                Interactive data-table playground powered by TanStack Table v8,
+                Tailwind, and DaisyUI.
+              </p>
+              <p class="topics">
+                <span>tanstack-table</span><span>tailwind</span
+                ><span>react</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/flask-restaurant-application-great-learning"
+                  target="_blank"
+                  rel="noopener"
+                  >flask-restaurant</a
+                >
+              </h3>
+              <p>
+                Full-stack restaurant ordering app — Flask backend with modular
+                HTML/CSS frontend.
+              </p>
+              <p class="topics">
+                <span>flask</span><span>python</span><span>sql</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/devadula-nandan/todo-application-with-vanilla-js"
+                  target="_blank"
+                  rel="noopener"
+                  >vanilla-js-todo</a
+                >
+              </h3>
+              <p>
+                Todo app in pure JavaScript with optimized DOM-manipulation
+                techniques.
+              </p>
+              <p class="topics"><span>vanilla-js</span><span>dom</span></p>
+            </article>
+          </div>
+
+          <p class="more-repos">
+            →
+            <a
+              href="https://github.com/devadula-nandan?tab=repositories"
+              target="_blank"
+              rel="noopener"
+              >all 40+ repositories on GitHub</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= github stats ================= -->
+      <section id="github" aria-label="GitHub statistics">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.github_stats</p>
+          <h2>Open source, by the numbers</h2>
+          <dl class="stats">
+            <div>
+              <dt>repositories</dt>
+              <dd id="s-repos" data-target="43">43</dd>
+            </div>
+            <div>
+              <dt>stars earned</dt>
+              <dd id="s-stars" data-target="25">25</dd>
+            </div>
+            <div>
+              <dt>languages</dt>
+              <dd id="s-langs" data-target="5">5</dd>
+            </div>
+            <div>
+              <dt>followers</dt>
+              <dd id="s-followers" data-target="18">18</dd>
+            </div>
+          </dl>
+          <div class="langbar" id="langbar" aria-hidden="true"></div>
+          <p
+            class="lang-legend"
+            id="langlegend"
+            aria-label="Language breakdown"
+          ></p>
+          <div class="heatmap-block" id="hm" hidden>
+            <h3 class="hm-title">contributions — last 12 months</h3>
+            <div class="heatmap" id="heatmap" aria-hidden="true"></div>
+            <p class="hm-caption" id="hm-caption"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= skills ================= -->
+      <section id="skills">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.skills</p>
+          <h2>Tools of the trade</h2>
+
+          <div class="skill-groups">
+            <div>
+              <h3>languages</h3>
+              <div class="tags">
+                <span class="tag">TypeScript</span
+                ><span class="tag">JavaScript</span>
+                <span class="tag">HTML5</span><span class="tag">CSS / SCSS</span
+                ><span class="tag">Python</span>
+              </div>
+            </div>
+            <div>
+              <h3>components &amp; ui</h3>
+              <div class="tags">
+                <span class="tag">Web Components</span
+                ><span class="tag">Lit</span> <span class="tag">React</span
+                ><span class="tag">Redux</span>
+                <span class="tag">Carbon Design System</span
+                ><span class="tag">Tailwind CSS</span>
+              </div>
+            </div>
+            <div>
+              <h3>testing &amp; a11y</h3>
+              <div class="tags">
+                <span class="tag">Jest</span><span class="tag">Cypress</span>
+                <span class="tag">Playwright</span><span class="tag">WCAG</span
+                ><span class="tag">WAI-ARIA</span>
+              </div>
+            </div>
+            <div>
+              <h3>data &amp; apis</h3>
+              <div class="tags">
+                <span class="tag">REST APIs</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= contact ================= -->
+      <section id="contact" class="contact">
+        <div class="wrap reveal">
+          <p class="eyebrow">user.contact</p>
+          <h2>Let's build something accessible.</h2>
+          <div class="contact-grid">
+            <div>
+              <a class="big-mail" href="mailto:devadula.nandan@gmail.com"
+                >devadula.nandan@gmail.com</a
+              >
+              <div class="contact-meta">
+                <span data-icon="phone">+91 70323 28703</span>
+                <a
+                  data-icon="github"
+                  href="https://github.com/devadula-nandan"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>github</span></a
+                >
+                <a
+                  data-icon="linkedin"
+                  href="https://www.linkedin.com/in/nandan-devadula"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>linkedin</span></a
+                >
+                <a
+                  data-icon="document"
+                  href="https://drive.google.com/file/d/1gtAMviM329eqGWURrzCcOWMZM2PIkAjC/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener"
+                  ><span>résumé</span></a
+                >
+              </div>
+            </div>
+            <div class="chat">
+              <div class="chat-top">
+                <span class="chat-title"
+                  ><span class="tilde">~/</span>assistant</span
+                >
+                <span class="chat-status" id="chat-status">● connecting…</span>
+                <button
+                  class="chat-mode"
+                  id="chat-mode"
+                  type="button"
+                  title="Switch between the on-device model and the cloud model"
+                ></button>
+                <select
+                  class="chat-model-select"
+                  id="chat-model-select"
+                  title="Choose Cloud Model"
+                  aria-label="Cloud Model"
+                  style="display: inline-flex;"
+                >
+                  <option value="gemini-3.5-flash" selected>3.5 Flash</option>
+                  <option value="gemini-3.1-flash-lite">3.1 Flash-Lite</option>
+                  <option value="gemini-2.5-flash">2.5 Flash</option>
+                  <option value="gemini-2.5-flash-lite">2.5 Flash-Lite</option>
+                </select>
+                <button
+                  class="chat-btn"
+                  id="chat-reset"
+                  type="button"
+                  aria-label="Reset conversation"
+                  title="Reset"
+                ></button>
+                <button
+                  class="chat-btn"
+                  id="chat-max"
+                  type="button"
+                  aria-label="Maximize chat"
+                  title="Maximize"
+                ></button>
+              </div>
+              <div class="chat-log" id="chat-log" aria-live="polite"></div>
+              <form class="chat-form" id="chat-form">
+                <input
+                  id="chat-input"
+                  type="text"
+                  maxlength="500"
+                  placeholder="e.g. What do you do at IBM?"
+                  aria-label="Message the assistant"
+                  autocomplete="off"
+                />
+                <button type="submit" data-icon="send" aria-label="Send message">
+                  <span>send</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© <span id="year">2026</span> Nandan Devadula</span>
+        <span
+          >designed as a spec · built by hand ·
+          <a
+            href="https://github.com/devadula-nandan/devadula-nandan"
+            target="_blank"
+            rel="noopener"
+            >source</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ---------- inline Carbon icons (@carbon/icons, Apache-2.0) ---------- */
+      const svg = (paths) =>
+        `<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">${paths}</svg>`;
+      const ICONS = {
+        // brightness-contrast
+        auto: svg(
+          '<path d="M15 2H17V5H15z"/><path d="M27 15H30V17H27z"/><path d="M15 27H17V30H15z"/><path d="M2 15H5V17H2z"/><path d="M6.22 5.73H8.219999999999999V8.73H6.22z" transform="rotate(-45 7.227 7.236)"/><path d="M23.27 6.23H26.27V8.23H23.27z" transform="rotate(-45 24.766 7.232)"/><path d="M23.77 23.27H25.77V26.27H23.77z" transform="rotate(-45 24.77 24.77)"/><path d="M5.47 25.13 7.59 23 9 24.42 6.88 26.54 5.47 25.13z"/><path d="M16,8a8,8,0,1,0,8,8A8,8,0,0,0,16,8Zm0,14a6,6,0,0,1,0-12Z"/>',
+        ),
+        // sun
+        light: svg(
+          '<path d="M16,12a4,4,0,1,1-4,4,4.0045,4.0045,0,0,1,4-4m0-2a6,6,0,1,0,6,6,6,6,0,0,0-6-6Z" transform="translate(0 .005)"/><path d="M6.854 5.375H8.854V10.333H6.854z" transform="rotate(-45 7.86 7.856)"/><path d="M2 15.005H7V17.005000000000003H2z"/><path d="M5.375 23.147H10.333V25.147H5.375z" transform="rotate(-45 7.86 24.149)"/><path d="M15 25.005H17V30.005H15z"/><path d="M23.147 21.668H25.147V26.625999999999998H23.147z" transform="rotate(-45 24.152 24.149)"/><path d="M25 15.005H30V17.005000000000003H25z"/><path d="M21.668 6.854H26.625999999999998V8.854H21.668z" transform="rotate(-45 24.152 7.856)"/><path d="M15 2.005H17V7.005H15z"/>',
+        ),
+        // moon
+        dark: svg(
+          '<path d="M13.5025,5.4136A15.0755,15.0755,0,0,0,25.096,23.6082a11.1134,11.1134,0,0,1-7.9749,3.3893c-.1385,0-.2782.0051-.4178,0A11.0944,11.0944,0,0,1,13.5025,5.4136M14.98,3a1.0024,1.0024,0,0,0-.1746.0156A13.0959,13.0959,0,0,0,16.63,28.9973c.1641.006.3282,0,.4909,0a13.0724,13.0724,0,0,0,10.702-5.5556,1.0094,1.0094,0,0,0-.7833-1.5644A13.08,13.08,0,0,1,15.8892,4.38,1.0149,1.0149,0,0,0,14.98,3Z"/>',
+        ),
+        restart: svg(
+          '<path d="M26,18A10,10,0,1,1,16,8h6.1821l-3.5844,3.5854L20,13l6-6L20,1,18.5977,2.414,22.1851,6H16A12,12,0,1,0,28,18Z"/>',
+        ),
+        maximize: svg(
+          '<path d="M20 2 20 4 26.586 4 18 12.582 19.414 14 28 5.414 28 12 30 12 30 2 20 2z"/><path d="M14 19.416 12.592 18 4 26.586 4 20 2 20 2 30 12 30 12 28 5.414 28 14 19.416z"/>',
+        ),
+        minimize: svg(
+          '<path d="M4 18 4 20 10.586 20 2 28.582 3.414 30 12 21.414 12 28 14 28 14 18 4 18z"/><path d="M30 3.416 28.592 2 20 10.586 20 4 18 4 18 14 28 14 28 12 21.414 12 30 3.416z"/>',
+        ),
+        // logo--github
+        github: svg(
+          '<path fill-rule="evenodd" d="M16,2a14,14,0,0,0-4.43,27.28c.7.13,1-.3,1-.67s0-1.21,0-2.38c-3.89.84-4.71-1.88-4.71-1.88A3.71,3.71,0,0,0,6.24,22.3c-1.27-.86.1-.85.1-.85A2.94,2.94,0,0,1,8.48,22.9a3,3,0,0,0,4.08,1.16,2.93,2.93,0,0,1,.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4,5.4,0,0,1,1.44-3.76,5,5,0,0,1,.14-3.7s1.17-.38,3.85,1.43a13.3,13.3,0,0,1,7,0c2.67-1.81,3.84-1.43,3.84-1.43a5,5,0,0,1,.14,3.7,5.4,5.4,0,0,1,1.44,3.76c0,5.38-3.27,6.56-6.39,6.91a3.33,3.33,0,0,1,.95,2.59c0,1.87,0,3.38,0,3.84s.25.81,1,.67A14,14,0,0,0,16,2Z"/>',
+        ),
+        // logo--linkedin
+        linkedin: svg(
+          '<path d="M26.2,4H5.8C4.8,4,4,4.8,4,5.7v20.5c0,0.9,0.8,1.7,1.8,1.7h20.4c1,0,1.8-0.8,1.8-1.7V5.7C28,4.8,27.2,4,26.2,4z M11.1,24.4H7.6V13h3.5V24.4z M9.4,11.4c-1.1,0-2.1-0.9-2.1-2.1c0-1.2,0.9-2.1,2.1-2.1c1.1,0,2.1,0.9,2.1,2.1S10.5,11.4,9.4,11.4z M24.5,24.3H21v-5.6c0-1.3,0-3.1-1.9-3.1c-1.9,0-2.1,1.5-2.1,2.9v5.7h-3.5V13h3.3v1.5h0.1c0.5-0.9,1.6-1.9,3.3-1.9c3.5,0,4.2,2.3,4.2,5.3V24.3z"/>',
+        ),
+        email: svg(
+          '<path d="M28,6H4A2,2,0,0,0,2,8V24a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V8A2,2,0,0,0,28,6ZM25.8,8,16,14.78,6.2,8ZM4,24V8.91l11.43,7.91a1,1,0,0,0,1.14,0L28,8.91V24Z"/>',
+        ),
+        document: svg(
+          '<path d="M25.7,9.3l-7-7C18.5,2.1,18.3,2,18,2H8C6.9,2,6,2.9,6,4v24c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V10C26,9.7,25.9,9.5,25.7,9.3z M18,4.4l5.6,5.6H18V4.4z M24,28H8V4h8v6c0,1.1,0.9,2,2,2h6V28z"/><path d="M10 22H22V24H10z"/><path d="M10 16H22V18H10z"/>',
+        ),
+        send: svg(
+          '<path d="M27.45,15.11l-22-11a1,1,0,0,0-1.08.12,1,1,0,0,0-.33,1L7,16,4,26.74A1,1,0,0,0,5,28a1,1,0,0,0,.45-.11l22-11a1,1,0,0,0,0-1.78Zm-20.9,10L8.76,17H18V15H8.76L6.55,6.89,24.76,16Z"/>',
+        ),
+        phone: svg(
+          '<path d="M26,29h-.17C6.18,27.87,3.39,11.29,3,6.23A3,3,0,0,1,5.76,3h5.51a2,2,0,0,1,1.86,1.26L14.65,8a2,2,0,0,1-.44,2.16l-2.13,2.15a9.37,9.37,0,0,0,7.58,7.6l2.17-2.15A2,2,0,0,1,24,17.35l3.77,1.51A2,2,0,0,1,29,20.72V26A3,3,0,0,1,26,29ZM6,5A1,1,0,0,0,5,6v.08C5.46,12,8.41,26,25.94,27A1,1,0,0,0,27,26.06V20.72l-3.77-1.51-2.87,2.85L19.88,22C11.18,20.91,10,12.21,10,12.12l-.06-.48,2.84-2.87L11.28,5Z"/>',
+        ),
+        // chip — on-device / WebLLM
+        chip: svg(
+          '<path d="M11,11V21H21V11Zm8,8H13V13h6Z"/><path d="M30,13V11H26V8a2,2,0,0,0-2-2H21V2H19V6H13V2H11V6H8A2,2,0,0,0,6,8v3H2v2H6v6H2v2H6v3a2,2,0,0,0,2,2h3v4h2V26h6v4h2V26h3a2,2,0,0,0,2-2V21h4V19H26V13ZM24,24H8V8H24Z"/>',
+        ),
+        cloud: svg(
+          '<path d="M16,7h0a7.66,7.66,0,0,1,1.51.15,8,8,0,0,1,6.35,6.34l.26,1.35,1.35.24a5.5,5.5,0,0,1-1,10.92H7.5a5.5,5.5,0,0,1-1-10.92l1.34-.24.26-1.35A8,8,0,0,1,16,7m0-2a10,10,0,0,0-9.83,8.12A7.5,7.5,0,0,0,7.49,28h17a7.5,7.5,0,0,0,1.32-14.88,10,10,0,0,0-7.94-7.94A10.27,10.27,0,0,0,16,5Z"/>',
+        ),
+      };
+
+      /* fill any [data-icon] element with its inline Carbon glyph (links still work if this never runs) */
+      document.querySelectorAll("[data-icon]").forEach((el) => {
+        el.insertAdjacentHTML("afterbegin", ICONS[el.dataset.icon] || "");
+      });
+
+      /* ---------- theme switcher: auto → light → dark ---------- */
+      const themeBtn = document.getElementById("theme-btn");
+      const THEMES = ["auto", "light", "dark"];
+
+      function applyTheme(t) {
+        if (t === "auto") {
+          delete document.documentElement.dataset.theme;
+          localStorage.removeItem("theme");
+        } else {
+          document.documentElement.dataset.theme = t;
+          localStorage.setItem("theme", t);
+        }
+        themeBtn.innerHTML = ICONS[t] + `<span>${t}</span>`;
+        themeBtn.setAttribute("aria-label", "Theme: " + t);
+      }
+
+      let theme = ["light", "dark"].includes(localStorage.getItem("theme"))
+        ? localStorage.getItem("theme")
+        : "auto";
+      applyTheme(theme);
+      themeBtn.addEventListener("click", () => {
+        theme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
+        applyTheme(theme);
+      });
+
+      /* ---------- header shadow on scroll ---------- */
+      const headerEl = document.querySelector("header");
+      addEventListener(
+        "scroll",
+        () => headerEl.classList.toggle("scrolled", scrollY > 8),
+        { passive: true },
+      );
+
+      /* ---------- scroll reveals + stat count-up ---------- */
+      /* count-up reads data-target each frame, so a late GitHub fetch still lands on the right number */
+      function animateCount(el) {
+        const dur = 900,
+          t0 = performance.now();
+        const step = (t) => {
+          const p = Math.min((t - t0) / dur, 1);
+          el.textContent = Math.round(
+            +el.dataset.target * (1 - Math.pow(1 - p, 3)),
+          );
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      if (matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries)
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                if (e.target.closest("#github"))
+                  e.target.querySelectorAll(".stats dd").forEach(animateCount);
+                io.unobserve(e.target);
+              }
+          },
+          { threshold: 0.1 },
+        );
+        document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+      }
+
+      /* ---------- chat assistant (POST /api/chat) ---------- */
+      const chatLog = document.getElementById("chat-log");
+      const chatInput = document.getElementById("chat-input");
+
+      const chatStatus = document.getElementById("chat-status");
+      function setStatus(text, on) {
+        chatStatus.textContent = "● " + text;
+        chatStatus.classList.toggle("on", !!on);
+      }
+
+      /* GET /api/health → { ok } — is the Gemini-backed cloud assistant live? */
+      async function runHealthCheck() {
+        setStatus("connecting…", false);
+        try {
+          const { ok } = await (await fetch("/api/health")).json();
+          setStatus(ok ? "online" : "fallback", ok);
+        } catch {
+          setStatus("fallback", false);
+        }
+      }
+
+      function addMsg(who, text) {
+        const div = document.createElement("div");
+        div.className = "msg " + who;
+        div.textContent = text;
+        chatLog.appendChild(div);
+        chatLog.scrollTop = chatLog.scrollHeight;
+        return div;
+      }
+
+      /* typewriter — one active typing at a time; starting a new one completes the previous instantly */
+      let typing = null; // { el, text, timer }
+      function finishTyping() {
+        if (!typing) return;
+        clearTimeout(typing.timer);
+        typing.el.textContent = typing.text;
+        typing.el.classList.remove("typing");
+        typing = null;
+      }
+      function typeInto(el, text) {
+        finishTyping();
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          el.textContent = text;
+          chatLog.scrollTop = chatLog.scrollHeight;
+          return;
+        }
+        el.textContent = "";
+        el.classList.add("typing");
+        typing = { el, text, timer: 0 };
+        let i = 0;
+        const tick = () => {
+          el.textContent = text.slice(0, ++i);
+          chatLog.scrollTop = chatLog.scrollHeight;
+          if (i < text.length) typing.timer = setTimeout(tick, 14);
+          else {
+            el.classList.remove("typing");
+            typing = null;
+          }
+        };
+        tick();
+      }
+
+      /* greeting types itself the first time the chat scrolls into view */
+      const chatEl = document.querySelector(".chat");
+      const GREETING =
+        "Hi! I'm Nandan's virtual assistant. Ask me about my work on IBM Carbon, my experience, my tech stack, or how to reach me.";
+      const greetIO = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            greetIO.disconnect();
+            typeInto(addMsg("bot", ""), GREETING);
+          }
+        },
+        { threshold: 0.4 },
+      );
+      greetIO.observe(chatEl);
+
+      /* conversation history — shared across both engines (role/content turns) */
+      const history = [];
+      const MAX_HISTORY = 12;
+      const strip = (t) => t.replace(/\*\*?/g, "");
+      /* drop a trailing fragment when the model is cut off mid-sentence by max_tokens */
+      function tidyReply(t) {
+        t = strip(t).trim();
+        if (!/[.!?]["')]?$/.test(t)) {
+          const cut = Math.max(
+            t.lastIndexOf("."),
+            t.lastIndexOf("!"),
+            t.lastIndexOf("?"),
+          );
+          if (cut > 30) t = t.slice(0, cut + 1);
+        }
+        return t;
+      }
+
+      /* system prompt for the on-device model (the cloud path has its own copy server-side).
+         Kept tight and directive — small models drift with long, discursive prompts. */
+      const LOCAL_SYSTEM = `You are Nandan Devadula, replying in the first person to a visitor on your portfolio site.
+
+Rules:
+- Answer in 1-2 short, natural sentences. Never write a long list or essay.
+- Use ONLY the facts below. If something isn't here, say you're not sure — never invent numbers, dates, companies, or clients.
+- Continue the conversation naturally; don't repeat a greeting or re-introduce yourself after the first message.
+- Plain text only.
+
+Facts about you:
+- Frontend Developer at IBM in Kochi, India, on the Carbon Design System team since November 2023. You build accessible, enterprise-grade Web Components for Carbon for IBM Products and Carbon for AI, prototype in Carbon Labs, and do WCAG accessibility testing.
+- Before IBM: Software Engineer at HCL Technologies (2022-2023, financial dashboards and REST APIs); Web UI Developer at Ochre Media (2021-2022, B2B microsites).
+- B.E. in Electronics & Communication from Andhra University.
+- Skills: JavaScript, TypeScript, React, Lit, Web Components, the Carbon Design System, CSS/SCSS, Jest, Cypress, Playwright, and Python.
+- 40+ public GitHub repos, including wc-audio-input, wc-resizer, and storybook-theme-carbon.
+- Contact: devadula.nandan@gmail.com, github.com/devadula-nandan, linkedin.com/in/nandan-devadula.
+- Favorite color: Carbon blue (#0f62fe).`;
+
+      /* a tiny example exchange, prepended before real turns, to anchor the voice and length
+         a 135M model won't hold from instructions alone */
+      const LOCAL_FEWSHOT = [
+        { role: "user", content: "hey, who are you?" },
+        {
+          role: "assistant",
+          content:
+            "I'm Nandan, a frontend developer at IBM on the Carbon Design System team. Ask me anything about my work, skills, or how to reach me.",
+        },
+        { role: "user", content: "what do you work with?" },
+        {
+          role: "assistant",
+          content:
+            "Mostly TypeScript and Web Components with Lit, plus React — and a lot of accessibility and testing work with Jest, Cypress, and Playwright.",
+        },
+      ];
+
+      /* ---------- engine selection: local (WebLLM / WebGPU) vs cloud (Gemini) ---------- */
+      const LOCAL_MODEL = "SmolLM2-360M-Instruct-q4f16_1-MLC"; // ~376MB — nearly the smallest, far more coherent than 135M
+      const modeBtn = document.getElementById("chat-mode");
+      const modelSelect = document.getElementById("chat-model-select");
+      let mode = "cloud"; // default — server-side Gemini
+      let preferredCloudModel = "gemini-3.5-flash"; // default preferred cloud model
+      let localSupported = false;
+      let engineReady = false;
+      let enginePromise = null;
+      let loadingBubble = null; // bubble showing model-download progress, if any
+      let busy = false;
+
+      async function webgpuOK() {
+        try {
+          return !!(navigator.gpu && (await navigator.gpu.requestAdapter()));
+        } catch {
+          return false;
+        }
+      }
+
+      function onProgress(p) {
+        const pct = Math.round((p.progress || 0) * 100);
+        if (mode === "local" && !engineReady) setStatus(`loading ${pct}%`, false);
+        if (loadingBubble)
+          loadingBubble.textContent = `Downloading the on-device model… ${pct}% (first time only)`;
+      }
+
+      /* lazily import WebLLM and spin up the engine — the model downloads on first use, then caches */
+      function ensureEngine() {
+        if (!enginePromise) {
+          enginePromise = (async () => {
+            const webllm = await import("https://esm.run/@mlc-ai/web-llm");
+            return webllm.CreateMLCEngine(LOCAL_MODEL, {
+              initProgressCallback: onProgress,
+            });
+          })().catch((err) => {
+            enginePromise = null; // allow a retry on the next message
+            throw err;
+          });
+        }
+        return enginePromise;
+      }
+
+      function renderMode() {
+        modeBtn.innerHTML =
+          (mode === "local" ? ICONS.chip : ICONS.cloud) + `<span>${mode}</span>`;
+        modeBtn.setAttribute(
+          "aria-label",
+          `Answering engine: ${mode}. Click to switch.`,
+        );
+        if (mode === "local") {
+          setStatus(engineReady ? "on-device" : "on-device", engineReady);
+          modelSelect.style.display = "none";
+        } else {
+          runHealthCheck();
+          modelSelect.style.display = "inline-flex";
+        }
+      }
+
+      modeBtn.addEventListener("click", () => {
+        if (busy) return;
+        if (mode === "local") {
+          mode = "cloud";
+        } else if (localSupported) {
+          mode = "local";
+        } else {
+          setStatus("WebGPU unavailable", false);
+          return;
+        }
+        renderMode();
+      });
+
+      modelSelect.addEventListener("change", (e) => {
+        preferredCloudModel = e.target.value;
+      });
+
+      function getFriendlyModelName(modelId) {
+        if (modelId.includes("3.5-flash")) return "Gemini 3.5 Flash";
+        if (modelId.includes("3.1-flash-lite")) return "Gemini 3.1 Flash-Lite";
+        if (modelId.includes("2.5-flash-lite")) return "Gemini 2.5 Flash-Lite";
+        if (modelId.includes("2.5-flash")) return "Gemini 2.5 Flash";
+        if (modelId.includes("flash-lite")) return "Gemini Flash-Lite";
+        if (modelId.includes("flash")) return "Gemini Flash";
+        if (modelId.includes("pro")) return "Gemini Pro";
+        return modelId;
+      }
+
+      /* cloud path — POST to the serverless Gemini endpoint */
+      async function respondCloud(pending) {
+        try {
+          const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              messages: history.slice(-MAX_HISTORY),
+              message: history[history.length - 1].content,
+              preferredModel: preferredCloudModel,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.reply) {
+            history.push({ role: "assistant", content: data.reply });
+            typeInto(pending, strip(data.reply));
+
+            if (data.modelUsed && data.modelUsed !== preferredCloudModel) {
+              preferredCloudModel = data.modelUsed;
+              modelSelect.value = preferredCloudModel;
+            }
+
+            if (Array.isArray(data.rateLimitedModels)) {
+              data.rateLimitedModels.forEach((modelId) => {
+                const option = modelSelect.querySelector(`option[value="${modelId}"]`);
+                if (option) {
+                  option.disabled = true;
+                }
+              });
+            }
+          } else {
+            history.pop();
+            typeInto(pending, "Sorry, I couldn't come up with a response to that.");
+          }
+        } catch {
+          history.pop();
+          typeInto(
+            pending,
+            "I seem to be offline — email me directly at devadula.nandan@gmail.com.",
+          );
+        }
+      }
+
+      /* local path — stream tokens straight from the in-browser model */
+      async function respondLocal(pending) {
+        loadingBubble = pending;
+        pending.textContent = "Preparing the on-device model…";
+        try {
+          const engine = await ensureEngine();
+          engineReady = true;
+          loadingBubble = null;
+          finishTyping();
+          pending.classList.remove("typing");
+          pending.textContent = "";
+          const messages = [
+            { role: "system", content: LOCAL_SYSTEM },
+            ...LOCAL_FEWSHOT,
+            ...history.slice(-MAX_HISTORY),
+          ];
+          const stream = await engine.chat.completions.create({
+            messages,
+            temperature: 0.5,
+            top_p: 0.9,
+            frequency_penalty: 0.6, // curb "before that… before that…" repetition loops
+            presence_penalty: 0.3,
+            max_tokens: 120, // short, chat-length replies
+            stream: true,
+          });
+          let text = "";
+          for await (const chunk of stream) {
+            text += chunk.choices?.[0]?.delta?.content || "";
+            pending.textContent = strip(text);
+            chatLog.scrollTop = chatLog.scrollHeight;
+          }
+          const reply = tidyReply(text);
+          if (reply) {
+            pending.textContent = reply;
+            history.push({ role: "assistant", content: reply });
+            setStatus("on-device", true);
+          } else {
+            history.pop();
+            pending.textContent = "I couldn't generate a reply — try again.";
+          }
+        } catch (err) {
+          loadingBubble = null;
+          history.pop();
+          pending.textContent =
+            "The on-device model couldn't load here. Switch to cloud with the toggle above.";
+          setStatus("on-device", false);
+        }
+      }
+
+      document
+        .getElementById("chat-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const message = chatInput.value.trim();
+          if (!message || busy) return;
+          busy = true;
+          addMsg("you", message);
+          chatInput.value = "";
+          history.push({ role: "user", content: message });
+          const pending = addMsg("bot", "…");
+          try {
+            if (mode === "local") await respondLocal(pending);
+            else await respondCloud(pending);
+          } finally {
+            busy = false;
+          }
+        });
+
+      /* reset — clear the log and context, keep the loaded model, re-type the greeting */
+      const resetBtn = document.getElementById("chat-reset");
+      resetBtn.innerHTML = ICONS.restart;
+      resetBtn.addEventListener("click", () => {
+        if (busy) return;
+        finishTyping();
+        history.length = 0;
+        chatLog.textContent = "";
+        typeInto(addMsg("bot", ""), GREETING);
+      });
+
+      /* default to cloud; detect WebGPU so the toggle can offer the on-device model */
+      (async () => {
+        localSupported = await webgpuOK();
+        renderMode();
+      })();
+
+      /* maximize — pin the chat at its current rect, then transition to the full viewport (and back) */
+      const maxBtn = document.getElementById("chat-max");
+      maxBtn.innerHTML = ICONS.maximize;
+      const chatPh = document.createElement("div"); // placeholder keeps the grid cell from collapsing
+      chatPh.hidden = true;
+      chatEl.before(chatPh);
+      let maximized = false;
+
+      function setRect(r) {
+        Object.assign(chatEl.style, {
+          top: r.top + "px",
+          left: r.left + "px",
+          width: r.width + "px",
+          height: r.height + "px",
+        });
+      }
+
+      function toggleMax() {
+        const instant = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!maximized) {
+          const r = chatEl.getBoundingClientRect();
+          chatPh.style.height = r.height + "px";
+          chatPh.hidden = false;
+          chatEl.style.position = "fixed";
+          chatEl.style.zIndex = "100";
+          setRect(r);
+          chatEl.classList.add("max");
+          document.body.style.overflow = "hidden";
+          requestAnimationFrame(() => {
+            setRect({
+              top: 0,
+              left: 0,
+              width: innerWidth,
+              height: innerHeight,
+            });
+          });
+        } else {
+          setRect(chatPh.getBoundingClientRect());
+          const done = (e) => {
+            if (e && e.propertyName !== "height") return;
+            if (maximized) return; // user re-maximized before cleanup fired
+            chatEl.removeEventListener("transitionend", done);
+            chatEl.classList.remove("max");
+            chatEl.removeAttribute("style");
+            chatPh.hidden = true;
+            document.body.style.overflow = "";
+          };
+          if (instant) done();
+          else {
+            chatEl.addEventListener("transitionend", done);
+            setTimeout(done, 500); // fallback if transitionend never fires (throttled tab, interrupted transition)
+          }
+        }
+        maximized = !maximized;
+        maxBtn.innerHTML = maximized ? ICONS.minimize : ICONS.maximize;
+        const label = maximized ? "Restore chat" : "Maximize chat";
+        maxBtn.setAttribute("aria-label", label);
+        maxBtn.title = label.split(" ")[0];
+      }
+
+      maxBtn.addEventListener("click", toggleMax);
+      addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && maximized) toggleMax();
+      });
+
+      /* ---------- github stats (live, with static fallback already in markup) ---------- */
+      const LANG_COLORS = [
+        "#0f62fe",
+        "#4589ff",
+        "#78a9ff",
+        "#a6c8ff",
+        "#d0e2ff",
+      ];
+      const FALLBACK_LANGS = {
+        JavaScript: 45,
+        TypeScript: 30,
+        Python: 12,
+        HTML: 8,
+        CSS: 5,
+      };
+
+      function renderLangs(langs) {
+        const top = Object.entries(langs)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5);
+        const total = top.reduce((n, [, c]) => n + c, 0);
+        const bar = document.getElementById("langbar");
+        const legend = document.getElementById("langlegend");
+        bar.textContent = "";
+        legend.textContent = "";
+        top.forEach(([name, count], i) => {
+          const pct = Math.round((count / total) * 100);
+          const seg = document.createElement("span");
+          seg.style.cssText = `width:${pct}%;background:${LANG_COLORS[i]}`;
+          bar.appendChild(seg);
+          const item = document.createElement("span");
+          const dot = document.createElement("i");
+          dot.style.background = LANG_COLORS[i];
+          item.append(dot, `${name} ${pct}%`);
+          legend.appendChild(item);
+        });
+      }
+
+      renderLangs(FALLBACK_LANGS);
+
+      (async () => {
+        try {
+          const base = "https://api.github.com/users/devadula-nandan";
+          const [user, repos] = await Promise.all([
+            fetch(base).then((r) => (r.ok ? r.json() : Promise.reject())),
+            fetch(base + "/repos?per_page=100").then((r) =>
+              r.ok ? r.json() : Promise.reject(),
+            ),
+          ]);
+          const set = (id, v) => {
+            const el = document.getElementById(id);
+            el.dataset.target = v;
+            el.textContent = v;
+          };
+          set("s-repos", user.public_repos);
+          set("s-followers", user.followers);
+          set(
+            "s-stars",
+            repos.reduce((n, r) => n + r.stargazers_count, 0),
+          );
+          const langs = {};
+          repos.forEach((r) => {
+            if (r.language) langs[r.language] = (langs[r.language] || 0) + 1;
+          });
+          if (Object.keys(langs).length) {
+            set("s-langs", Object.keys(langs).length);
+            renderLangs(langs);
+          }
+        } catch {
+          /* static fallback numbers stay */
+        }
+      })();
+
+      /* contribution heatmap — public mirror of the GitHub contribution graph; stays hidden if unreachable */
+      (async () => {
+        try {
+          const res = await fetch(
+            "https://github-contributions-api.jogruber.de/v4/devadula-nandan?y=last",
+          );
+          if (!res.ok) return;
+          const { contributions } = await res.json();
+          if (!contributions || !contributions.length) return;
+          const grid = document.getElementById("heatmap");
+          // pad so the first column starts on the right weekday row (Sun–Sat)
+          const pad = new Date(contributions[0].date + "T00:00").getDay();
+          for (let i = 0; i < pad; i++) {
+            grid.appendChild(document.createElement("i")).style.visibility =
+              "hidden";
+          }
+          for (const d of contributions) {
+            const cell = document.createElement("i");
+            if (d.level) cell.className = "lv" + d.level;
+            cell.title = `${d.date} — ${d.count} contribution${d.count === 1 ? "" : "s"}`;
+            grid.appendChild(cell);
+          }
+          const total = contributions.reduce((n, d) => n + d.count, 0);
+          document.getElementById("hm-caption").textContent =
+            `${total} contributions in the last year`;
+          document.getElementById("hm").hidden = false;
+        } catch {
+          /* leave hidden */
+        }
+      })();
+    </script>
+  </body>
+</html>
